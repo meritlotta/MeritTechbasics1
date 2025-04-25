@@ -17,7 +17,7 @@ MAGENTA = "\033[95m"
 # Welcome
 print("With this ASCII art program, you have the chance to create your very own bottle.")
 time.sleep(1)
-print("A bit like build a bear, but differet...")
+print("A bit like build a bear, but different...")
 time.sleep(1)
 
 # Enter name of the bottle
