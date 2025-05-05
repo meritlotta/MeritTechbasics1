@@ -108,8 +108,7 @@ def main():
             break  # exit the loop once a valid number is given
         else:
             print("⚠️That was not a valid number. Please try again.⚠️")
-    # Normalize user input
-    normalized_answer_7 = answer_7.strip().lower()
+
 
     # Question 7
     time.sleep(1)
