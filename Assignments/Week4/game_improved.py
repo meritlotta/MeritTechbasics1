@@ -2,7 +2,7 @@ import time
 import sys
 
 RAINBOW_COLOURS = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"]
-
+FINAL_COUNTDOWN = ["3...", "2...", "1..."]
 
 def type_text(text, speed=0.05):
     for char in text:
@@ -108,6 +108,7 @@ def main():
             break  # exit the loop once a valid number is given
         else:
             print("⚠️That was not a valid number. Please try again.⚠️")
+    # Normalize user input
     normalized_answer_7 = answer_7.strip().lower()
 
     # Question 7
@@ -116,6 +117,7 @@ def main():
     time.sleep(1)
 
     normalized_answer_7 = answer_7.strip().lower()
+
     correct_answers_7 = ["louvre", "the louvre", "louvre museum", "the louvre museum"]
 
     if normalized_answer_7 in correct_answers_7:
@@ -154,11 +156,12 @@ def main():
     time.sleep(1)
     type_text("Final score is loading...")
     time.sleep(1)
-    type_text("3...")
-    time.sleep(1)
-    type_text("2...")
-    time.sleep(1)
-    type_text("1...")
+
+    # Final countdown using FINAL_COUNTDOWN constant
+    for countdown_text in FINAL_COUNTDOWN:
+        time.sleep(1)
+        type_text(countdown_text)
+
     time.sleep(1)
     type_text("Final score: " + str(score) + "/8")
 
