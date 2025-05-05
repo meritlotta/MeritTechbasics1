@@ -65,10 +65,8 @@ def main():
     answer_3 = input("🌊What is the name of the largest ocean on Earth?🌊 ")
     time.sleep(1)
 
-    # Normalize the input (strip spaces, lowercase) for more accurate comparison
     normalized_answer_3 = answer_3.strip().lower()
 
-    # Strict validation: answer must be "pacific" and specifically "pacific ocean"
     if "pacific" in normalized_answer_3 and "ocean" in normalized_answer_3 and normalized_answer_3 != "ocean":
         print("🎉Correct! You earned 1 point.🎉")
         score += 1
@@ -110,7 +108,6 @@ def main():
             break  # exit the loop once a valid number is given
         else:
             print("⚠️That was not a valid number. Please try again.⚠️")
-    # Normalize user input
     normalized_answer_7 = answer_7.strip().lower()
 
     # Question 7
@@ -119,7 +116,6 @@ def main():
     time.sleep(1)
 
     normalized_answer_7 = answer_7.strip().lower()
-
     correct_answers_7 = ["louvre", "the louvre", "louvre museum", "the louvre museum"]
 
     if normalized_answer_7 in correct_answers_7:
