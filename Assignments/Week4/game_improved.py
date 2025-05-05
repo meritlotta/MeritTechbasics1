@@ -46,7 +46,7 @@ def main():
         # Following bonus question
         time.sleep(1)
         print("Bonus point if you can tell me all seven colours! ")
-        bonus_1 = input("Please make sure, the colours are seperated by a comma: ")
+        bonus_1 = input("Please make sure, the colours are separated by a comma: ")
         time.sleep(1)
 
         user_colors = [color.strip().lower() for color in bonus_1.split(",")]
