@@ -1,10 +1,11 @@
 # inventory management game
 import time
 import sys
-
 from requests import delete
 
 # list that holds my items
+inventory = []
+
 def show_inventory():
     if not inventory:
         type_text("Your backpack is empty.")
@@ -266,7 +267,7 @@ def room2():
                 action = input("> ").lower().strip()
 
                 if action.startswith("drop "):
-                    item_to_drop = drop_item[5:].strip()  # Remove the "drop " part
+                    item_to_drop = action[5:].strip()  # Remove the "drop " part
                     drop(item_to_drop)
 
                 elif action.startswith("pickup "):
