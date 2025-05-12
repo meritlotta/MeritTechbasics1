@@ -27,10 +27,22 @@ def help_action():
 
     if help_request == '1':
         type_text("Goodbye!")
-        exit()  # exits the game
+        exit()
     elif help_request == '2':
         type_text("Restarting the game...")
-        main()  # assuming you have a main() function that starts the game
+        introduction()
+        scene_change()
+        prequel()
+        scene_change()
+        preparation()
+        scene_change()
+        room1()
+        scene_change()
+        room2()
+        scene_change()
+        room3()
+        scene_change()
+        outro()
     elif help_request == '3':
         show_inventory()
     else:
@@ -80,7 +92,14 @@ spaceship_items = [{"name": "flashlight", "type": "tool", "uses": 1},
 # crewmate trust score
 trust_score = 5
 
-
+def check_trust(trust_score):
+    if trust_score < 2:
+        type_text("Your crewmates don't trust you anymore.")
+        time.sleep(1)
+        type_text("They decide to leave you behind and continue the mission without you.")
+        time.sleep(1)
+        type_text("GAME OVER")
+        exit()
 
 
 # actual game
@@ -206,6 +225,7 @@ def room1():
 
         if fainted_help == "1":
             if "first aid" in inventory:
+                trust_score += 1
                 inventory.remove("first aid")
                 type_text("You use the first aid kit and your crewmate recovers. Good job!")
                 type_text("Your crewmates gain trust in you. This is the current trust level: " + str(trust_score))
@@ -222,6 +242,7 @@ def room1():
             type_text("However your crew thinks of you as unresponsible for not being able to help on your own...")
             time.sleep(1)
             type_text("This is the current level of trust your crew has in you: " + str(trust_score) + "/10")
+            check_trust(trust_score)
             break
         elif fainted_help == "help":
             help_action()
@@ -380,6 +401,7 @@ def room3():
                 type_text("You want to help the girl and your crew thinks of this as the right decision.")
                 time.sleep(1)
                 type_text("You gain trust. This is your current trust level: " + str(trust_score) + "/10")
+                check_trust(trust_score)
                 time.sleep(1)
                 type_text("You try and help the girl with: ")
                 time.sleep(1)
@@ -414,6 +436,7 @@ def room3():
                         type_text("'What an odd experinece', you think.")
                         time.sleep(1)
                         type_text("You and your crew start walking again.")
+                        check_trust(trust_score)
                     else:
                         type_text("You want to use the rope... but it's not in your backpack!")
                         time.sleep(1)
@@ -421,6 +444,7 @@ def room3():
                         trust_score -= 1
                         time.sleep(1)
                         type_text("They lose trust. Current trust level: " + str(trust_score) + "/10")
+                        check_trust(trust_score)
                         type_text("Try a different option.")
                         continue
 
@@ -432,6 +456,7 @@ def room3():
                         type_text("Your crew is impressed by your logical thinking.")
                         time.sleep(1)
                         type_text("This is your current trust level: " + str(trust_score) + "/10")
+                        check_trust(trust_score)
                         time.sleep(1)
                         type_text("As you take a closer look on the map, you see no bridges marled on it.")
                         time.sleep(1)
@@ -451,8 +476,9 @@ def room3():
                         trust_score -= 1
                         time.sleep(1)
                         type_text("They lose trust. Current trust level: " + str(trust_score) + "/10")
+                        check_trust(trust_score)
                         type_text("Try a different option.")
-                        continue
+                        return
 
                 elif help_how == "3":
                     type_text("You try to swim to save the girl.")
@@ -470,7 +496,7 @@ def room3():
                     type_text("... but it is too late.")
                     time.sleep(1)
                     type_text("GAME OVER")
-                    return  # Exit the function
+                    exit()
                 elif help_how == "help":
                     help_action()
                     return
@@ -486,6 +512,7 @@ def room3():
                 type_text("They lose trust. Current trust level: " + str(trust_score) + "/10")
                 time.sleep(1)
                 type_text("You and your crew continue your path along the river.")
+                check_trust(trust_score)
                 break
 
         elif follow_scream == "no":
@@ -495,6 +522,7 @@ def room3():
             time.sleep(1)
             trust_score -= 1
             type_text("They lose trust in you. This is your current trust score: " + str(trust_score) + "/10")
+            check_trust(trust_score)
 
         elif follow_scream == "help":
             help_action()
@@ -503,7 +531,7 @@ def room3():
             type_text("This is not a valid answer. Please enter 'yes' or 'no'.")
 
 
-def outro:
+def outro():
     type_text("You and your crew decide, that the mission needs to be aborted.")
     time.sleep(1)
     type_text("You're not prepared yet to continue the mission.")
