@@ -523,6 +523,7 @@ def room3():
             trust_score -= 1
             type_text("They lose trust in you. This is your current trust score: " + str(trust_score) + "/10")
             check_trust(trust_score)
+            break
 
         elif follow_scream == "help":
             help_action()
