@@ -285,7 +285,7 @@ def room2():
                 time.sleep(1)
                 type_text("Enter 'done', when you do not want to drop or pick up an item.")
                 time.sleep(1)
-                action = input("> ").lower().strip()
+                action = input("> ").strip()
 
                 if action.startswith("drop "):
                     item_to_drop = action[5:].strip()  # Remove the "drop " part
