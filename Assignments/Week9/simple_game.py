@@ -5,11 +5,11 @@ import random
 pygame.init()
 
 # Load images
-sunflower_img = pygame.transform.scale(pygame.image.load("sunflower_grown.jpg"), (100, 150))
-tomato_img = pygame.transform.scale(pygame.image.load("tomato_grown.jpg"), (150, 150))
-sun_icon = pygame.transform.scale(pygame.image.load(" sun.jpg"), (100, 100))
-water_icon = pygame.transform.scale(pygame.image.load("rain.png.jpg"), (100, 100))
-plant_icon = pygame.transform.scale(pygame.image.load("plant.png.jpg"), (100, 100))
+sunflower_img = pygame.transform.scale(pygame.image.load("sunflower.PNG"), (100, 150))
+tomato_img = pygame.transform.scale(pygame.image.load("tomato.PNG"), (150, 150))
+sun_icon = pygame.transform.scale(pygame.image.load("sun.PNG"), (100, 100))
+water_icon = pygame.transform.scale(pygame.image.load("rain.PNG"), (100, 100))
+plant_icon = pygame.transform.scale(pygame.image.load("plant.PNG"), (100, 100))
 
 # Screen
 SCREEN_WIDTH = 800
